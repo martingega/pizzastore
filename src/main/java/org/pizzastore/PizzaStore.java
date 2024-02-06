@@ -1,17 +1,22 @@
 package org.pizzastore;
 
-import org.pizzastore.pizzas.CheesePizza;
-import org.pizzastore.pizzas.GreekPizza;
-import org.pizzastore.pizzas.PepperoniPizza;
 import org.pizzastore.pizzas.Pizza;
 
 public class PizzaStore {
+
+    SimplePizzaFactory factory; // we give PizzaStore a reference to a SimplePizzaFactory
+
+    // PizzaStore gets the factory passed to it in the constructor
+    public PizzaStore(SimplePizzaFactory factory) {
+        this.factory = factory;
+    }
 
     public String type;
 
     Pizza orderPizza() {
 
-        Pizza pizza; // type determines the type of pizza
+        Pizza pizza;
+        pizza = factory.createPizza(type); //we replaced the 'new' operator with a createPizza() method in the factory object. NO MORE concrete instatiations here
 
         pizza.prepare();
         pizza.bake();
