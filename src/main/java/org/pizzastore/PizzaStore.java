@@ -3,23 +3,16 @@ package org.pizzastore;
 import org.pizzastore.pizzas.Pizza;
 
 /**
- * This is the client of the factory. PizzaStore now goes through SimplePizzaFactory to get instances of pizza
+ * Each subclass provies an implementation of the createPizza() method, overriding the abstract createPizza() method
+ *  in PizzaStore, while all the subclasses make use of the orderPizza() method defined in PizzaStore.
  */
-public class PizzaStore {
+public abstract class PizzaStore {
 
-    SimplePizzaFactory factory; // we give PizzaStore a reference to a SimplePizzaFactory
-
-    // PizzaStore gets the factory passed to it in the constructor
-    public PizzaStore(SimplePizzaFactory factory) {
-        this.factory = factory;
-    }
-
-    public String type;
-
-    Pizza orderPizza() {
+    public Pizza orderPizza(String type) {
 
         Pizza pizza;
-        pizza = factory.createPizza(type); //we replaced the 'new' operator with a createPizza() method in the factory object. NO MORE concrete instatiations here
+
+        pizza = createPizza(type); // createPizza is back to being a call to a method in the PizzaStore rather than on a factory object
 
         pizza.prepare();
         pizza.bake();
@@ -29,5 +22,6 @@ public class PizzaStore {
         return pizza;
     }
 
+    abstract Pizza createPizza(String type);
 
 }
