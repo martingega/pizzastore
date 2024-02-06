@@ -2,6 +2,9 @@ package org.pizzastore;
 
 import org.pizzastore.pizzas.Pizza;
 
+/**
+ * This is the client of the factory. PizzaStore now goes through SimplePizzaFactory to get instances of pizza
+ */
 public class PizzaStore {
 
     SimplePizzaFactory factory; // we give PizzaStore a reference to a SimplePizzaFactory

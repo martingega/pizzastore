@@ -3,7 +3,9 @@ package org.pizzastore;
 import org.pizzastore.pizzas.*;
 
 /**
- * This class has only ONE job in life: creating pizzas for its clients
+ * This class has only ONE job in life: creating pizzas for its clients.
+ * This is the factory where we create pizzat; it should be the only part
+ * of our application that referers to concrete Pizza classes.
  */
 public class SimplePizzaFactory {
 

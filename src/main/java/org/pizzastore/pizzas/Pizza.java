@@ -1,5 +1,8 @@
 package org.pizzastore.pizzas;
 
+/**
+ * This is the product of the factory: pizza
+ */
 public class Pizza {
 
     public void prepare() {
